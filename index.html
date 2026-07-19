@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma &amp; Bobby's Dinner Party, A Sacred Sangha Gathering</title>
+<meta name="description" content="An invitation to gather, cook, and share a meal together, a Sacred Sangha dinner hosted by Uma and Bobby.">
+<meta name="theme-color" content="#263323">
+
+<!-- Open Graph so the link previews warmly when texted -->
+<meta property="og:title" content="Uma &amp; Bobby's Dinner Party, A Sacred Sangha Gathering">
+<meta property="og:description" content="An evening to gather, cook, and be nourished together. You're invited.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --forest-deep: #1B241A;
+    --forest: #263323;
+    --forest-soft: #33422D;
+    --parchment: #EEE5CC;
+    --parchment-dim: #DDD0AC;
+    --parchment-page: #D9CDB4;
+    --olive: #7C7A45;
+    --olive-soft: #9C9760;
+    --terracotta: #B85C38;
+    --terracotta-deep: #8F4526;
+    --ink: #201C12;
+    --ink-dim: #4A4630;
+    --max-w: 640px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background: var(--forest-deep);
+    color: var(--parchment);
+    font-family: 'Karla', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Sprig motif (top of each page) ---------- */
+  .sprig-top{
+    display: flex;
+    justify-content: center;
+    margin: 0 0 32px;
+    opacity: 0.9;
+  }
+  .sprig-top svg{ width: 108px; height: auto; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 80px 28px 60px;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 28%, rgba(184,92,56,0.16), transparent 60%),
+      radial-gradient(ellipse 90% 70% at 50% 100%, rgba(124,122,69,0.14), transparent 65%),
+      linear-gradient(180deg, var(--forest-deep) 0%, var(--forest) 70%, var(--forest-soft) 100%);
+    overflow: hidden;
+  }
+
+  .candle{ width: 46px; height: auto; margin-bottom: 30px; }
+  .flame{
+    transform-origin: 50% 100%;
+    animation: flicker 3.4s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%, 100% { transform: scaleY(1) scaleX(1) rotate(0deg); opacity: 0.95; }
+    20% { transform: scaleY(1.08) scaleX(0.95) rotate(-1deg); opacity: 1; }
+    45% { transform: scaleY(0.94) scaleX(1.04) rotate(1deg); opacity: 0.9; }
+    70% { transform: scaleY(1.05) scaleX(0.97) rotate(-0.5deg); opacity: 1; }
+  }
+
+  .eyebrow{
+    font-family: 'Karla', sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--olive-soft);
+    margin: 0 0 18px;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(34px, 8vw, 54px);
+    line-height: 1.12;
+    margin: 0 0 16px;
+    color: var(--parchment);
+    max-width: 13ch;
+  }
+  h1 .amp{ color: var(--terracotta); font-style: normal; }
+
+  .hero-sub{
+    font-size: 16.5px;
+    color: var(--parchment-dim);
+    max-width: 34ch;
+    margin: 0 auto;
+  }
+
+  .scroll-cue{
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--olive-soft);
+    opacity: 0.75;
+    animation: bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 6px); }
+  }
+
+  /* ---------- Page sections (alternating backgrounds) ---------- */
+  section{
+    padding: 72px 0;
+  }
+
+  section.bg-forest{
+    background: var(--forest);
+  }
+  section.bg-forest .kicker{ color: var(--terracotta); }
+  section.bg-forest h2{ color: var(--parchment); }
+  section.bg-forest p, section.bg-forest .lede{ color: var(--parchment-dim); }
+  section.bg-forest .lede{ color: var(--parchment); }
+
+  section.bg-parchment{
+    background: var(--parchment-page);
+  }
+  section.bg-parchment .kicker{ color: var(--terracotta-deep); }
+  section.bg-parchment h2{ color: var(--ink); }
+  section.bg-parchment p, section.bg-parchment .lede{ color: var(--ink-dim); }
+  section.bg-parchment .lede{ color: var(--ink); }
+
+  section.bg-terracotta{
+    background: var(--terracotta);
+  }
+  section.bg-terracotta .kicker{ color: var(--forest-deep); }
+  section.bg-terracotta h2{ color: var(--parchment); }
+  section.bg-terracotta p, section.bg-terracotta .lede{ color: rgba(238,229,204,0.85); }
+  section.bg-terracotta .lede{ color: var(--parchment); }
+
+  .kicker{
+    font-family: 'Karla', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+
+  h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(24px, 5vw, 30px);
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+
+  p{
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+
+  .lede{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Details card (when / where) — parchment page ---------- */
+  .details{
+    border: 1px solid rgba(32,28,18,0.18);
+    border-radius: 4px;
+    padding: 26px 24px;
+    background: rgba(32,28,18,0.04);
+  }
+  .detail-row{
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+  }
+  .detail-row + .detail-row{ border-top: 1px solid rgba(32,28,18,0.14); }
+  .detail-label{
+    font-family: 'Karla', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta-deep);
+    min-width: 74px;
+    padding-top: 2px;
+  }
+  .detail-value{
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .detail-value.tbd{
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-size: 14.5px;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- Flow list (Easy Breezy) — parchment page ---------- */
+  .flow{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .flow li{
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+  }
+  .flow li + li{ border-top: 1px solid rgba(32,28,18,0.14); }
+  .flow .mark{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terracotta-deep);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .flow .text{ color: var(--ink-dim); }
+  .flow .text b{
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---------- Buttons / action cards — terracotta page ---------- */
+  .actions{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .btn{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: 0.02em;
+    padding: 18px 22px;
+    border-radius: 4px;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:active{ transform: scale(0.98); }
+
+  .btn-primary{
+    background: var(--parchment);
+    color: var(--ink);
+    box-shadow: 0 6px 20px rgba(32,28,18,0.18);
+  }
+  .btn-primary:hover{ background: var(--parchment-dim); }
+
+  .btn-sub{
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 12.5px;
+    color: rgba(238,229,204,0.82);
+    font-weight: 400;
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .bring-card{
+    display: block;
+    text-decoration: none;
+    border: 1px solid rgba(238,229,204,0.5);
+    border-radius: 4px;
+    padding: 22px 22px;
+    background: rgba(238,229,204,0.08);
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+  .bring-card:hover{ background: rgba(238,229,204,0.14); border-color: var(--parchment); }
+  .bring-card:active{ transform: scale(0.99); }
+  .bring-title{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--parchment);
+    margin-bottom: 6px;
+  }
+  .bring-title::after{
+    content: "→";
+    margin-left: 8px;
+    color: var(--forest-deep);
+    font-style: normal;
+  }
+  .bring-text{
+    font-size: 14.5px;
+    color: rgba(238,229,204,0.85);
+    margin: 0;
+  }
+
+  /* ---------- Footer — terracotta ---------- */
+  footer{
+    padding: 56px 0 60px;
+    text-align: center;
+    background: var(--terracotta);
+  }
+  .sign{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--parchment);
+    margin-bottom: 6px;
+  }
+  .fine{
+    font-size: 13px;
+    color: var(--forest-deep);
+    letter-spacing: 0.04em;
+  }
+
+  /* focus visibility */
+  a:focus-visible, .btn:focus-visible{
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 — HERO (forest) ================= -->
+<div class="hero">
+  <svg class="candle" viewBox="0 0 40 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g class="flame">
+      <path d="M20 6C20 6 13 16 13 23C13 28 16 31 20 31C24 31 27 28 27 23C27 16 20 6 20 6Z" fill="#D98B5F"/>
+      <path d="M20 14C20 14 17 20 17 24C17 27 18 29 20 29C22 29 23 27 23 24C23 20 20 14 20 14Z" fill="#EFC48A"/>
+    </g>
+    <rect x="16" y="31" width="8" height="34" rx="1.5" fill="#EEE5CC" fill-opacity="0.9"/>
+    <ellipse cx="20" cy="66" rx="14" ry="3" fill="#EEE5CC" fill-opacity="0.15"/>
+  </svg>
+
+  <p class="eyebrow">A Sacred Sangha Gathering</p>
+  <h1>Uma <span class="amp">&amp;</span> Bobby's<br>Dinner Party</h1>
+  <p class="hero-sub">Come as you are. Bring something to share. Leave a little more nourished than you arrived.</p>
+
+  <div class="scroll-cue">scroll ↓</div>
+</div>
+
+<!-- ================= PAGE 2 — THE DETAILS (parchment) ================= -->
+<section class="bg-parchment">
+  <div class="wrap reveal">
+    <div class="sprig-top" aria-hidden="true">
+      <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12H118" stroke="#263323" stroke-width="1"/>
+        <path d="M60 12C60 12 52 4 44 6C48 10 54 12 60 12Z" fill="#263323"/>
+        <path d="M60 12C60 12 68 4 76 6C72 10 66 12 60 12Z" fill="#263323"/>
+        <circle cx="60" cy="12" r="2.4" fill="#8F4526"/>
+      </svg>
+    </div>
+    <p class="kicker">Where &amp; When</p>
+    <h2>The details</h2>
+    <div class="details">
+      <div class="detail-row">
+        <div class="detail-label">Date</div>
+        <div class="detail-value tbd" id="detail-date">To be confirmed, we'll follow up with the exact evening.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Time</div>
+        <div class="detail-value tbd" id="detail-time">To be confirmed.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Place</div>
+        <div class="detail-value tbd" id="detail-place">To be confirmed, save the date for now, location soon to follow.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3 — JOIN US (terracotta) ================= -->
+<section class="bg-terracotta">
+  <div class="wrap reveal">
+    <div class="sprig-top" aria-hidden="true">
+      <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12H118" stroke="#EEE5CC" stroke-width="1"/>
+        <path d="M60 12C60 12 52 4 44 6C48 10 54 12 60 12Z" fill="#EEE5CC"/>
+        <path d="M60 12C60 12 68 4 76 6C72 10 66 12 60 12Z" fill="#EEE5CC"/>
+        <circle cx="60" cy="12" r="2.4" fill="#1B241A"/>
+      </svg>
+    </div>
+    <p class="kicker">Join Us</p>
+    <h2>RSVP &amp; bring a dish</h2>
+    <p>Two quick things, then you're all set.</p>
+
+    <div class="actions">
+      <a href="#" id="rsvp-btn" class="btn btn-primary">RSVP by Text</a>
+      <span class="btn-sub" style="text-align:center;">Opens a pre-filled text, just update the details and hit send.</span>
+
+      <a href="https://docs.google.com/spreadsheets/d/1-ccaNCQ1J-fpOf1OJQyDeNqhCgXRpDMyZDMdnXpYOSM/edit?usp=drivesdk" target="_blank" rel="noopener" class="bring-card" style="margin-top:10px;">
+        <div class="bring-title">Say what you're bringing</div>
+        <p class="bring-text">Add your name next to a dish on our shared sign-up sheet, so the table comes together nicely.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 4 — A MEAL SHARED FROM THE HEART (forest) ================= -->
+<section class="bg-forest">
+  <div class="wrap reveal">
+    <div class="sprig-top" aria-hidden="true">
+      <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12H118" stroke="#9C9760" stroke-width="1"/>
+        <path d="M60 12C60 12 52 4 44 6C48 10 54 12 60 12Z" fill="#9C9760"/>
+        <path d="M60 12C60 12 68 4 76 6C72 10 66 12 60 12Z" fill="#9C9760"/>
+        <circle cx="60" cy="12" r="2.4" fill="#B85C38"/>
+      </svg>
+    </div>
+    <p class="kicker">What &amp; Why</p>
+    <h2>A meal shared from the heart</h2>
+    <p>This is a potluck dinner, not a production, everyone brings a dish, everyone brings themselves, and together it becomes a table. No agenda beyond good food and easy company.</p>
+    <p>We're doing this because community doesn't happen by accident. It's built one shared meal at a time, one honest conversation at a time. We wanted a night that's light-hearted on the surface and quietly nourishing underneath, replenishment for the soul, disguised as dinner.</p>
+  </div>
+</section>
+
+<!-- ================= PAGE 5 — EASY BREEZY (parchment) ================= -->
+<section class="bg-parchment">
+  <div class="wrap reveal">
+    <div class="sprig-top" aria-hidden="true">
+      <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12H118" stroke="#263323" stroke-width="1"/>
+        <path d="M60 12C60 12 52 4 44 6C48 10 54 12 60 12Z" fill="#263323"/>
+        <path d="M60 12C60 12 68 4 76 6C72 10 66 12 60 12Z" fill="#263323"/>
+        <circle cx="60" cy="12" r="2.4" fill="#8F4526"/>
+      </svg>
+    </div>
+    <p class="kicker">How It Will Feel</p>
+    <h2>Easy Breezy</h2>
+    <ul class="flow">
+      <li>
+        <div class="mark">1</div>
+        <div class="text"><b>Arrive and settle in.</b> Find a seat, pour something warm, say hello. No rush.</div>
+      </li>
+      <li>
+        <div class="mark">2</div>
+        <div class="text"><b>A moment of gratitude.</b> Before we eat, a short pause together, a breath, a few words, nothing formal.</div>
+      </li>
+      <li>
+        <div class="mark">3</div>
+        <div class="text"><b>The meal, potluck-style.</b> Plates pass, dishes get shared, seconds are encouraged.</div>
+      </li>
+      <li>
+        <div class="mark">4</div>
+        <div class="text"><b>Conversation, unhurried.</b> Real talk, easy laughter, whatever the table wants to be.</div>
+      </li>
+      <li>
+        <div class="mark">5</div>
+        <div class="text"><b>A soft close.</b> We wind down together and head home a little fuller, in more ways than one.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= FOOTER (terracotta) ================= -->
+<footer>
+  <div class="wrap">
+    <p class="sign">With gratitude,<br>Uma &amp; Bobby</p>
+    <p class="fine">A Sacred Sangha Gathering</p>
+  </div>
+</footer>
+
+<script>
+  // ---- Edit these three lines once the date, time, and place are confirmed ----
+  const EVENT_DATE  = "";           // e.g. "Saturday, September 6th"
+  const EVENT_TIME  = "";           // e.g. "6:00 PM"
+  const EVENT_PLACE = "";           // e.g. "123 Elm St, Minneapolis, MN"
+  const RSVP_PHONE  = "16128346015"; // digits only, country code first
+
+  (function fillDetails(){
+    if (EVENT_DATE)  document.getElementById('detail-date').textContent  = EVENT_DATE;
+    if (EVENT_TIME)  document.getElementById('detail-time').textContent  = EVENT_TIME;
+    if (EVENT_PLACE) document.getElementById('detail-place').textContent = EVENT_PLACE;
+    if (EVENT_DATE)  document.getElementById('detail-date').classList.remove('tbd');
+    if (EVENT_TIME)  document.getElementById('detail-time').classList.remove('tbd');
+    if (EVENT_PLACE) document.getElementById('detail-place').classList.remove('tbd');
+  })();
+
+  (function setupRsvp(){
+    const btn = document.getElementById('rsvp-btn');
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const dateText = (EVENT_DATE || EVENT_TIME)
+        ? [EVENT_DATE, EVENT_TIME].filter(Boolean).join(', ')
+        : "date & time to be confirmed";
+      const body =
+        "Hi Uma & Bobby! I'm RSVPing for the Sacred Sangha dinner gathering.\n\n" +
+        "Party size: [#]\n" +
+        "Attending: [Yes / No / Maybe]\n" +
+        "Date & time: " + dateText;
+
+      const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const sep = isiOS ? '&' : '?';
+      window.location.href = "sms:+" + RSVP_PHONE + sep + "body=" + encodeURIComponent(body);
+    });
+  })();
+
+  // Scroll reveal
+  (function reveal(){
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
